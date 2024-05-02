@@ -6,7 +6,6 @@ import { ethers } from 'ethers';
 declare global {
   interface Window {
     keplr?: any;
-    cosmos: any
   }
 }
 
@@ -54,6 +53,7 @@ const App: React.FC = () => {
     }
   }
 
+
   const connectKeplrWallet = useCallback(async () => {
     if (window.keplr) {
       try {
@@ -71,11 +71,14 @@ const App: React.FC = () => {
     }
   }, [])
 
+
+  // Doesn't work
   const getUSDCBalance = useCallback(async (address : string) => {
     try {
       console.log(window?.keplr);
       const balance: any = await window?.keplr.requestMethod('eth_getBalance');
       console.log(balance);
+
       if(balance){
         setETHBalance(Number(ethers.formatEther(balance)))
       }
@@ -84,6 +87,10 @@ const App: React.FC = () => {
     }
   }, []);
 
+
+  // const burnUSDC = useCallback(async () => {
+  //   const burnUsdcTx = await ethTokenMessengerContract.depositForBurn(amount, AVAX_DESTINATION_DOMAIN, destinationAddress, USDC_ETH_CONTRACT_ADDRESS).send();
+  // }, []);
 
 
   return (
