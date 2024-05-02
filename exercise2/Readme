@@ -1,0 +1,15 @@
+
+
+
+
+### Exercise 3
+
+From the typescript documentation : 
+"Don’t ever use the types Number, String, Boolean, Symbol, or Object These types refer to non-primitive boxed objects that are almost never used appropriately in JavaScript code."
+
+Source: https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html#number-string-boolean-symbol-and-object
+
+So before actually doing the exercise I would strongly recommend against doing this , EVEN via a proxy (like I am about to do using extends).
+
+String (with a capital S) is the Object based way of creating strings in Javascript. The String interface in our instance represents the an implementation of the type, normaly native to typescript, for that class.
+
